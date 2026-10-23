@@ -1,0 +1,15 @@
+---
+title: "Gallery"
+listing:
+  contents: "figures/*/index.qmd"
+  type: grid
+  grid-columns: 2
+  image-height: 240px
+  sort: "date desc"
+  fields: [image, title, description]
+---
+
+Figures I've made for teaching, each with the code that draws it. Everything
+here is in the public domain under
+[CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/), so use and adapt
+it however you like, with no need to ask or to credit me.

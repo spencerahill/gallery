@@ -1,0 +1,8 @@
+/* Rules for the gallery only; styles.css is a copy of the main site's. */
+
+/* Show each figure whole on its listing card, instead of cropped to fill it */
+.quarto-grid-item .card-img-top img,
+.quarto-grid-item img.thumbnail-image {
+  object-fit: contain;
+  background-color: #fff;
+}

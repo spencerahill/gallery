@@ -1,0 +1,28 @@
+# The gallery's environment: everything needed to build every figure and render
+# the site, locked for every platform in pixi.lock.  The same lock file drives
+# the GitHub Actions build, so a figure built locally and the published one come
+# from the same package versions.
+#
+#   pixi run figures   # rebuild every figure from its script
+#   pixi run render    # rebuild every figure, then render the site into _site/
+#   pixi run preview   # rebuild every figure, then serve the site locally
+
+[workspace]
+name = "gallery"
+channels = ["conda-forge"]
+platforms = ["osx-64", "osx-arm64", "linux-64"]
+requires-pixi = ">=0.81.0"
+
+[dependencies]
+python = "3.12.*"
+numpy = "*"
+# LaTeX engine that fetches the packages a document needs on first use
+tectonic = "*"
+# pdftocairo, for the SVG and PNG copies of each PDF
+poppler = "*"
+quarto = "*"
+
+[tasks]
+figures = "python scripts/build_figures.py"
+render = { cmd = "quarto render", depends-on = ["figures"] }
+preview = { cmd = "quarto preview", depends-on = ["figures"] }

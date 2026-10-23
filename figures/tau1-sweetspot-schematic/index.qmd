@@ -1,0 +1,52 @@
+---
+title: "The τ ≈ 1 sweet spot for emission to space"
+description: "A cartoon of why emission to space, per unit height, peaks near optical depth τ ≈ 1."
+date: 2026-10-23
+image: sweetspot.png
+image-alt: "Cartoon of CO₂ molecules in an atmospheric column, each emitting one photon straight up, with the τ ≈ 1 layer highlighted."
+resources:
+  - make_sweetspot.py
+  - sweetspot.tex
+  - sweetspot.pdf
+  - sweetspot.svg
+  - sweetspot.png
+---
+
+![](sweetspot.svg){width=100% fig-alt="Cartoon of a column of CO₂ molecules between the surface and the top of the atmosphere, each sending one photon straight up. Both photons from the optically thin top layer escape to space, five of the eight from the τ ≈ 1 layer escape, and none of the 27 from the optically thick layers below escape."}
+
+Each CO₂ molecule emits one photon straight up, and the photon is absorbed by
+the first molecule directly above it. Optical depth τ is measured downward from
+the top of the atmosphere (TOA), so it is small near the top and large near the
+surface.
+
+- **Optically thin (τ ≪ 1):** both photons emitted here escape to space, but
+  there are only two molecules to emit them.
+- **τ ≈ 1:** eight molecules emit, and five of their photons escape.
+- **Optically thick (τ ≫ 1):** 27 molecules emit, and every one of their
+  photons is absorbed before it gets out.
+
+Five of the seven photons that reach space therefore come from the τ ≈ 1 layer.
+Higher up there are too few emitters, and lower down there is too much absorber
+overhead. In a real atmosphere, emission to space per unit height likewise
+peaks near τ ≈ 1.
+
+## Download
+
+- [PDF](sweetspot.pdf) and [SVG](sweetspot.svg), both vector graphics
+- [PNG](sweetspot.png), 300 dpi
+- [sweetspot.tex](sweetspot.tex): the TikZ drawing, as a standalone LaTeX
+  document
+- [make_sweetspot.py](make_sweetspot.py): the Python script that places the
+  molecules and writes `sweetspot.tex`
+
+## Changing it
+
+The layout, the positions of the optically thin and τ ≈ 1 molecules, and the
+height and molecule count of each optically thick row are constants near the
+top of `make_sweetspot.py`, which needs only Python and NumPy. The optically
+thick molecules are scattered at random about their rows. An optional argument
+sets the random seed, which defaults to 5, and some seeds find no valid
+placement. The script stops with an error, before it writes `sweetspot.tex`,
+if a photon would escape or be absorbed other than as intended or if two
+molecules would overlap. Compile `sweetspot.tex` with any LaTeX engine, for
+example `pdflatex sweetspot.tex`.

@@ -1,0 +1,13 @@
+/_site/
+/.quarto/
+/.pixi/
+
+# Written by scripts/build_figures.py from each figure's make_*.py; the
+# scripts are the source.  A future figure drawn directly in TikZ, with no
+# script, needs its .tex re-included here.
+figures/*/*.tex
+figures/*/*.pdf
+figures/*/*.svg
+figures/*/*.png
+
+**/*.quarto_ipynb

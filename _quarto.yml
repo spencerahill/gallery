@@ -1,0 +1,42 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - "figures/*/index.qmd"
+
+website:
+  title: "Gallery"
+  description: "Teaching figures by Spencer A. Hill, each with the code that draws it, in the public domain."
+  site-url: https://spencerahill.github.io/gallery/
+  repo-url: https://github.com/spencerahill/gallery
+  open-graph: true
+  navbar:
+    pinned: true
+    right:
+      - href: https://spencerahill.github.io/
+        text: Spencer A. Hill
+  page-footer:
+    center: "Public domain under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Source on [GitHub](https://github.com/spencerahill/gallery)."
+
+# Same theme as spencerahill.github.io: styles.scss and styles.css are
+# unmodified copies of that site's files.  Rules for this site only go in
+# gallery.css.
+format:
+  html:
+    theme:
+      - cosmo
+      - styles.scss
+    css:
+      - styles.css
+      - gallery.css
+    toc: false
+    grid:
+      sidebar-width: 220px
+      body-width: 720px
+      margin-width: 280px
+    fontsize: 1.05em
+    linestretch: 1.5
+    html-math-method: katex
+    link-external-newwindow: true
+    link-external-icon: false
