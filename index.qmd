@@ -12,4 +12,6 @@ listing:
 Figures I've made for teaching, each with the code that draws it. Everything
 here is in the public domain under
 [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/), so use and adapt
-it however you like, with no need to ask or to credit me.
+it however you like, with no need to ask or to credit me. Where a figure
+redraws someone else's, its page credits the original; please keep that credit
+when you reuse the figure.

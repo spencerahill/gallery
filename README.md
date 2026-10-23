@@ -6,7 +6,8 @@ published at <https://spencerahill.github.io/gallery/>.
 Everything in this repository is in the public domain under
 [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) (see `LICENSE`):
 copy, modify and use any of it for any purpose, without asking or giving
-credit.
+credit. Where a figure redraws someone else's, its page credits the original;
+please keep that credit when you reuse the figure.
 
 ## Building
 
@@ -33,6 +34,11 @@ Each figure has its own directory, `figures/<slug>/`, containing two files:
 - `index.qmd`, the figure's page, whose front matter gives `title`,
   `description`, `date` and `image: <name>.png`, and lists the built files under
   `resources` so the site includes them.
+
+The directory can also contain further pages, such as notes for instructors,
+as other `.qmd` files, which the site renders too, and plain Markdown notes
+such as `design-notes.md`, which it does not. A figure that redraws a published
+one credits it in a Credit section of its `index.qmd`.
 
 `scripts/build_figures.py` runs every `make_*.py`, compiles each `<name>.tex` to
 PDF with tectonic, and converts the PDF to SVG and to a 300 dpi PNG. The front

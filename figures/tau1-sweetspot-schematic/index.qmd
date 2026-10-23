@@ -30,6 +30,15 @@ Higher up there are too few emitters, and lower down there is too much absorber
 overhead. In a real atmosphere, emission to space per unit height likewise
 peaks near τ ≈ 1.
 
+Each photon's color shows which layer emitted it: blue for the optically thin
+layer, purple for the τ ≈ 1 layer and red for the optically thick layers. The
+colors go from coldest to warmest, since temperature falls with height in the
+troposphere.
+
+The [notes for instructors](instructor-notes.qmd) cover what the cartoon
+simplifies, the physics behind it and some discussion questions, and give a
+caption and alt text ready to paste.
+
 ## Download
 
 - [PDF](sweetspot.pdf) and [SVG](sweetspot.svg), both vector graphics
@@ -38,6 +47,23 @@ peaks near τ ≈ 1.
   document
 - [make_sweetspot.py](make_sweetspot.py): the Python script that places the
   molecules and writes `sweetspot.tex`
+
+## Credit
+
+The figure redraws Fig. 3 of Nadir Jeevanjee, "Climate sensitivity from
+radiative-convective equilibrium: A chalkboard approach," *American Journal of
+Physics* **91**, 731–745 (2023), <https://doi.org/10.1119/5.0135727>, the
+article's cartoon of emission to space from layers of increasing optical depth.
+The article is © 2023 its author and published under the
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license. My changes:
+the original's three panels became a single column, the τ ≈ 1 layer now sends
+more photons to space than the optically thin layer (in the original each sends
+three), the molecules are drawn as linear O=C=O, and each photon's color shows
+the layer that emitted it.
+
+My own work on the figure is in the public domain under CC0, like the rest of
+this gallery. If you reuse the figure, please keep the credit to Jeevanjee's
+article.
 
 ## Changing it
 
@@ -49,4 +75,6 @@ sets the random seed, which defaults to 5, and some seeds find no valid
 placement. The script stops with an error, before it writes `sweetspot.tex`,
 if a photon would escape or be absorbed other than as intended or if two
 molecules would overlap. Compile `sweetspot.tex` with any LaTeX engine, for
-example `pdflatex sweetspot.tex`.
+example `pdflatex sweetspot.tex`. The
+[design notes](https://github.com/spencerahill/gallery/blob/main/figures/tau1-sweetspot-schematic/design-notes.md)
+give the reasons behind each choice in the drawing.

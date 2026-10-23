@@ -18,9 +18,14 @@ each commit as a publication.
 
 - **A separate repository from the main site,** so that one license covers every
   file and a clone does not bring the paper PDFs along.
-- **CC0 1.0 for everything, code and figures alike.** Never add anything that
-  cannot be released under CC0, such as a third-party image or a figure from a
-  published paper.
+- **CC0 1.0 for everything, code and figures alike.** Never copy in a
+  third-party image or a figure from a published paper. A figure redrawn from a
+  published one, as the τ ≈ 1 schematic is from Fig. 3 of Jeevanjee (2023),
+  credits the original in a Credit section of its page. When the original is
+  CC BY, that section also gives the license and lists the changes, as CC BY
+  requires of adaptations, and asks reusers to keep the credit. (Added by
+  Claude on 2026-10-23, after the zip from Claude desktop showed the schematic
+  was adapted from that figure; Spencer has not yet reviewed the wording.)
 - **Figures are drafted inside the project that uses them,** usually a course
   repository, where the context about the topic lives, and copied here once
   finished. A figure made outside any project comes straight here; the τ ≈ 1
@@ -43,7 +48,13 @@ built files are gitignored and must stay uncommitted: the Actions build in
 After pushing, watch that run (`gh run list --commit <full sha>`, then
 `gh run watch <id> --exit-status`).
 
-The README gives the layout of a figure's directory and its `index.qmd`.
+The README gives the layout of a figure's directory and its `index.qmd`. A
+figure's directory can also contain its own `CLAUDE.md` with the constraints
+Spencer set on that figure; the τ ≈ 1 schematic's does.
+
+**Next candidate (Spencer, 2026-10-23):** the optical-depth absorber-area
+figure, `~/Dropbox/teaching/27sp_eas488/figures/optical-depth-absorber-area/`,
+once he calls it finished; the absorber-area figure is not finished yet.
 
 ## Styling
 

@@ -1,18 +1,28 @@
-"""One-panel cartoon of the tau ~ 1 emission 'sweet spot' (CO2).
+"""Generate the tau ~ 1 emission "sweet spot" cartoon (CO2) as standalone TikZ.
 
-Rules, checked by assertion before anything is drawn:
+Usage:  python3 make_sweetspot.py [seed]
+        (default seed 5 reproduces the published figure; writes sweetspot.tex
+        next to this script)
+
+Cartoon rules, enforced by assertion before anything is drawn:
   * every molecule emits exactly one photon, straight up;
   * a photon stops at the first molecule directly above it (a clean hit on
     the glyph, never a graze);
-  * every optically thin photon escapes; most tau~1 photons escape, and more
-    escape from the tau~1 layer than from the thin layer; every optically
-    thick photon is absorbed.
-Writes sweetspot.tex (standalone TikZ).
+  * every optically thin photon escapes; a majority of tau~1 photons escape,
+    and more escape from the tau~1 layer than from the thin layer; every
+    optically thick photon is absorbed.
+
+Everything worth editing is in the parameter block below: layer heights,
+hand-placed molecule positions for the thin and tau~1 layers, row counts for
+the thick layers, and colours. The seed only affects the thick layers.
 """
+import os
+import sys
+
 import numpy as np
 
-import sys
 rng = np.random.default_rng(int(sys.argv[1]) if len(sys.argv) > 1 else 5)
+HERE = os.path.dirname(os.path.abspath(__file__))
 
 # ---------------- layout (cm) ----------------
 W = 6.6                                  # column width
@@ -156,7 +166,17 @@ brace(Y_THICK2, Y_SWEET, r"$\tau \gg 1$\\[1pt]{\small optically thick}", "colthi
 
 w(r"\end{tikzpicture}")
 w(r"\end{document}")
-open("sweetspot.tex", "w").write("\n".join(L))
+# aggregate checks on the cartoon's message
+n = {k: sum(m[2].startswith(k) for m in mols) for k in ("thin", "sweet", "thick")}
+esc = {k: sum(m[2].startswith(k) and fate(m[:2], placed)[0] == "escape" for m in mols)
+       for k in ("thin", "sweet", "thick")}
+assert esc["thin"] == n["thin"], "every optically thin photon must escape"
+assert 2 * esc["sweet"] > n["sweet"], "a majority of tau~1 photons must escape"
+assert esc["sweet"] > esc["thin"], "tau~1 layer must send more photons to space than the thin layer"
+assert esc["thick"] == 0, "no optically thick photon may escape"
+
+with open(os.path.join(HERE, "sweetspot.tex"), "w") as f:
+    f.write("\n".join(L) + "\n")
 
 for layer in ("thin", "sweet", "thick1", "thick2"):
     ms = [m for m in mols if m[2] == layer]

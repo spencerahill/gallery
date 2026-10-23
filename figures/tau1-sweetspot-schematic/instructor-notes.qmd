@@ -1,0 +1,211 @@
+---
+title: "The τ ≈ 1 sweet spot: notes for instructors"
+description: "What the τ ≈ 1 sweet-spot cartoon simplifies, the physics behind it, discussion questions, and a caption and alt text ready to paste."
+---
+
+These notes go with the [τ ≈ 1 sweet-spot cartoon](index.qmd). The notes cover what
+the cartoon deliberately simplifies, the physics needed to answer the questions
+a careful student is likely to ask, and some discussion questions.
+
+Background: Section III.C of N. Jeevanjee, "Climate sensitivity from
+radiative-convective equilibrium: A chalkboard approach," *Am. J. Phys.*
+**91**, 731–745 (2023), <https://doi.org/10.1119/5.0135727>.
+
+## The idea
+
+At a single wavelength, how much a layer sends to space is the product of two
+competing factors. Deeper layers contain more absorbers, and by Kirchhoff's law
+they therefore emit more. But a photon from deeper down must cross more
+absorbers to get out. High up, nearly every photon escapes, but there are few
+emitters. Deep down there are many emitters, but almost nothing escapes. The
+product peaks where the optical depth to space is $\tau \approx 1$.
+
+## What the cartoon simplifies
+
+**1. The sweet spot exists only per unit height.** In the paper's model for
+CO₂ (its Eq. 20), $\tau \propto p^2$: the $p^2$ comes from the absorber column
+above (one factor of $p$) and pressure broadening of the absorption lines
+(another factor of $p$). With $p \propto e^{-z/H}$ this gives
+$\tau \propto e^{-2z/H}$, so every $H/2 \approx 3.75\;\text{km}$ of height
+changes $\tau$ by a factor of $e$. A slab of thickness $dz$ therefore sends to
+space an amount proportional to
+
+$$\left|\frac{d\tau}{dz}\right| e^{-\tau} \;\propto\; \tau\, e^{-\tau},$$
+
+which peaks at $\tau = 1$. If you instead slice the column into layers of equal
+$\Delta\tau$, each slice sends $e^{-\tau}\Delta\tau$, which is largest at the
+top: no interior peak. The cartoon's comparison is fair because the thin layer
+is drawn at least as tall as the $\tau \approx 1$ layer.
+
+The thin region physically has no top, since $\tau \to 0$ only as $p \to 0$.
+Truncating it at the dashed top-of-atmosphere (TOA) line is harmless. The whole
+region above the level where the optical depth is $\tau$ contributes a fraction
+$1 - e^{-\tau}$ of all the photons that reach space, which is finite however
+tall the region is.
+
+**2. At $\tau = 1$ itself, most photons are absorbed.** A photon emitted
+straight up at $\tau = 1$ escapes with probability $e^{-1} \approx 37\%$. The cartoon's 5 of 8
+is an average over the whole shaded layer. You can read the layer's optical
+depth off the figure using the paper's interpretation of $\tau$ (its Eq. 17) as
+total absorber cross-section divided by column area. Each glyph's width is
+about 0.099 of the column width, so:
+
+| Level | $\tau$ from glyph widths |
+|---|---|
+| top of shaded layer | 0.20 |
+| bottom of shaded layer | 0.99 |
+| surface | 3.7 |
+
+The average escape probability across $\tau = 0.20$–$0.99$ is
+$(e^{-0.20} - e^{-0.99})/0.79 \approx 57\%$, consistent with 5 of 8.
+
+**3. The real peak is broad, and the top of the thick region contributes.** By
+the same $e^{-\tau}$ weighting, the expected number of photons reaching space
+from each region is:
+
+| Region | Expected | Drawn |
+|---|---|---|
+| thin | 1.8 | 2 |
+| $\tau \approx 1$ | 4.5 | 5 |
+| thick | 3.5 | 0 |
+
+The $\tau \approx 1$ layer still sends the most. Its lead over the thin layer is
+drawn about right, 5 to 2 against an expected 4.5 to 1.8. The $\tau \approx 1$
+layer's lead over the
+thick region is much smaller than drawn: an expected 4.5 to 3.5, where the
+drawing shows 5 to 0. The "every photon absorbed" rule describes the deep part of the thick
+region; its top, just below $\tau = 1$, sends a sizable share to space. More
+generally, $\tau e^{-\tau}$ falls to half its peak at $\tau \approx 0.23$ and
+$\tau \approx 2.7$. The span between those two levels is about
+$1.2H \approx 9\;\text{km}$, most of the troposphere.
+
+**4. Emission is isotropic.** Molecules emit in all directions. The cartoon
+shows only the upward photon from each.
+
+**5. Absorbed energy is re-emitted at the local temperature.** An absorbed
+photon's energy is thermalized by collisions, and the absorbing layer re-emits
+at its own temperature. So each photon that reaches space was emitted at the
+temperature of the layer it left, whatever path the energy took before that.
+Re-emission at the local temperature is what ties the $\tau \approx 1$
+level to the emission temperature $T_\text{em}$.
+
+**6. The color-to-temperature order assumes temperature falls with height.**
+That holds in the troposphere. The paper's model has an isothermal
+stratosphere. In the real stratosphere temperature rises with height, so near
+the center of the CO₂ band, at 15 μm, where $\tau \approx 1$ lies in the
+stratosphere, the optically thin layer is *warmer* than the $\tau \approx 1$
+layer. That is the narrow emission spike at the band center in observed
+outgoing spectra.
+
+**7. Not to scale.** The molecule counts (2, 8 and 27) and the layer heights
+are illustrative. Each glyph is best read as a unit of absorbing cross-section
+rather than a fixed number of molecules, because absorption per molecule grows
+with pressure. If $\tau$ grew by the same factor across every layer as tall as
+the $\tau \approx 1$ layer, as $\tau \propto e^{-2z/H}$ implies, the cartoon's 2
+and 8 glyphs would set that factor at 4, and the thick region, two such layers
+tall, would need $32 + 128 = 160$ glyphs, six times the 27 drawn.
+
+## From photon counts to W/m²
+
+The cartoon counts photons, but OLR weights each emitter by the Planck function
+$B$ at its temperature: at one wavelength every photon has the same energy, and
+a warmer emitter sends out more of them. In the troposphere, deeper layers are warmer,
+so Planck weighting favors depth. It strengthens the $\tau \approx 1$ layer's
+lead over the thin layer and narrows its lead over the thick layer.
+
+The numbers below are my own estimates for an idealized all-troposphere column;
+the paper does not give them. The estimates assume a wavelength of 14 μm, $T \approx 227\;\text{K}$,
+a lapse rate of $6.5\;\text{K/km}$ and $H = 7.5\;\text{km}$.
+
+- **How fast $B$ grows with depth:** $B$ rises about 2% per Kelvin, so it grows
+  by a factor of $e$ every $\approx 7.6\;\text{km}$ of descent, or about
+  $1.6\times$ per $H/2$ layer.
+- **Why depth still loses:** transmittance $e^{-\tau}$, with
+  $\tau \propto e^{-2z/H}$, falls double-exponentially with depth. A modest
+  exponential increase in $B$ cannot offset that.
+
+Relative to the $\tau \approx 1$ layer, for equal-height layers each a factor
+of $e$ more opaque than the one above, with the energy computed from the
+Planck function:
+
+| Layer | $\tau$ range | Photons to space | W/m² to space |
+|---|---|---|---|
+| thin neighbor | 0.22–0.61 | 0.72 | 0.43 |
+| $\tau \approx 1$ | 0.61–1.65 | 1 | 1 |
+| thick neighbor | 1.65–4.48 | 0.51 | 0.76 |
+
+With the approximation $B \propto \tau^\beta$, $\beta \approx 0.5$, the energy reaching space per
+unit height goes as $\tau^{1+\beta} e^{-\tau}$. That peaks at $\tau \approx 1.5$,
+about $1.5\;\text{km}$ below the $\tau = 1$ level. The contribution has a long
+tail upward on the cold side. So the level whose temperature reproduces the
+OLR, $\pi B(T_\text{em})$, sits higher, at
+$\tau_\text{eff} = [\Gamma(1+\beta)]^{1/\beta} \approx 0.78$, where $\Gamma$
+is the gamma function (the paper uses $\Gamma$ for the lapse rate). The exact
+Planck function gives a peak at $\tau \approx 1.46$ and
+$\tau_\text{eff} \approx 0.72$. The paper's $\tau = 1$ lies
+between the peak and $\tau_\text{eff}$. In this column the $\tau = 1$ level is at
+227 K and $T_\text{em}$ is 219 K, so placing all emission at $\tau = 1$
+overestimates OLR at this wavelength by about 20%.
+
+## Discussion questions
+
+1. **Only some photons from the $\tau \approx 1$ layer escape, yet that layer
+   sends the most to space. Why?** It has many more emitters than the thin
+   layer. Its escape fraction is lower, but not low enough to cancel that
+   advantage.
+2. **Why compare layers of equal height rather than layers of equal optical
+   thickness $\Delta\tau$?** See note 1. With equal-$\Delta\tau$ slices the
+   topmost slice sends the most, so there is no sweet spot. Slices holding equal
+   masses of CO₂ give a third answer: with $\tau \propto p^2$, each slice's
+   emission to space goes as $\tau^{1/2} e^{-\tau}$, which peaks at
+   $\tau = 0.5$.
+3. **What happens to this picture if the CO₂ concentration doubles?** Every
+   level's $\tau$ doubles, so the $\tau = 1$ level rises. Where temperature
+   falls with height it is now colder and emits less, which is the route to
+   radiative forcing.
+4. **Why does the emitting layer's temperature matter for OLR in W/m², not
+   just photon counts?**
+   See the section on Planck weighting.
+5. **At a wavelength where CO₂ absorbs more weakly, where does the sweet spot
+   sit?** Lower and warmer. In the limit of very weak absorption it reaches the
+   surface, and the atmosphere becomes transparent at that wavelength.
+
+## Caption, alt text and credit line
+
+Plain-text versions for pasting into a web page, slide notes or a learning
+management system. They use Unicode τ so they survive outside LaTeX.
+
+**Caption:**
+
+> Why emission to space, per unit height, peaks near optical depth τ ≈ 1 (CO₂,
+> one wavelength). Each molecule emits one photon straight up; the photon
+> escapes unless a molecule lies directly above it. High up (τ ≪ 1, blue),
+> every photon escapes but there are few emitters. Deep down (τ ≫ 1, red),
+> there are many emitters but every photon is absorbed. In between (τ ≈ 1,
+> purple), emitters are plentiful and many of their photons still escape, so
+> this layer sends the most photons to space. Colors mark the emitting layer,
+> from coldest (blue) to warmest (red).
+
+The caption's "many" is deliberate. A photon emitted straight up from exactly
+τ = 1 escapes with probability $e^{-1} \approx 37\%$; the cartoon's 5 of 8 is an average over a
+layer spanning roughly τ ≈ 0.2–1 (see note 2 above).
+
+**Short caption:**
+
+> Emission to space per unit height peaks near τ ≈ 1: enough emitters, and
+> enough of their photons still escape.
+
+**Alt text:**
+
+> Cartoon of an atmospheric column of CO₂ molecules in three layers, with more
+> molecules lower down. Arrows show each molecule emitting a photon upward. Both
+> photons from the sparse top layer cross the top of the atmosphere; five of
+> eight from the shaded middle layer, labeled "τ ≈ 1, sweet spot", also escape;
+> every photon from the dense bottom layer is absorbed by a molecule above it.
+
+**Credit line:**
+
+> Figure by Spencer A. Hill, adapted from Fig. 3 of N. Jeevanjee, "Climate
+> sensitivity from radiative-convective equilibrium: A chalkboard approach,"
+> *Am. J. Phys.* **91**, 731–745 (2023), https://doi.org/10.1119/5.0135727
+> (CC BY 4.0).
